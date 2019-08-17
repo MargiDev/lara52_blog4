@@ -33,4 +33,18 @@ class User extends Authenticatable
     {
       return 'slug';
     }
+
+    public function getBioHtmlAttribute($value)
+    {
+      return $this->bio ? @markdown(e($this->bio)) : NULL;
+    }
+
+    public function gravatar()
+    {
+      $email = $this->email;
+      $default = "https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png";
+      $size = 100;
+
+      return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+    }
 }
