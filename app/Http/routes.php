@@ -15,6 +15,7 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
 
 Route::get('/', [
   'uses' => 'BlogController@index',
+  'as' => 'blog'
 ]);
 
 Route::get('/blog/show', function () {
