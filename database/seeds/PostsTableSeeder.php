@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
         //Insert 10 posts of dummy data
         $posts = [];
         $faker = Factory::create();
-        $date = Carbon::now('Asia/Bangkok');
+        $date = Carbon::now();
         $year = $date->year;
         $month = $date->month;
         $day = $date->subDays(10)->day;
